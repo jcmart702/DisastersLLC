@@ -1,2 +1,11 @@
 # DisastersLLC
-Worked as the main developer on the site by utilizing a template and creating styles using CSS and SASS and new layouts using XML.
+<p>Position Held: BrandExtract - Web Developer Intern</p>
+<p>Project Role: Main Developer
+<p>Project Time Period: November 2019 - February 2020</p>
+<p>Project URL: https://www.disastersllc.com/</p>
+
+<ul>
+  <li>Created the styles using CSS and SASS as well as new layout configurations using XML</li>
+  <li>Ensured web accessibility by following ADA compliance</li>
+  <li>Used SAM as the CMS to configure the structure of the website.</li>
+</ul>
