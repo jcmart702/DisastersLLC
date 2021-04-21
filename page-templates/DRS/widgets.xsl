@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:variable name="GOOGLE_MAPS_API_KEY">AIzaSyCPVhgCrbKphv-w7237f12b3huFVJTg21w</xsl:variable>
+  
 
   <xsl:template name="google-static-map">
     <xsl:param name="address" />
