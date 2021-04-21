@@ -1,0 +1,168 @@
+// least-squares-fit
+// Calculate the least square fit linear regression of provided values
+// @param {map} @map - A Sass map of viewport width and size value combinations
+// @return Linear equation as a calc() function
+// @example
+//   font-size: .least-squares-fit(576px, 24px; 768px, 24px; 992px, 34px);
+// @author Jake Wilson <jake.e.wilson@gmail.com>
+// .least-squares-fit(args...) {
+//   // Define loop function.
+//   .loop-args(@argCount) when (@argCount > 0) {
+//     .loop-args(@argCount - 1);
+//     @arg: extract(@args, @argCount);
+//     @breakpoint: extract(@arg,1);
+//     @font-size: extract(@arg,2);
+//   }
+//   // Start the loop.
+//   .loop-args(length(@args));
+// }
+
+// @see: http://www.adrenalinmedia.com.au/blog/january-2016/this-changes-everything-css-%E2%80%98fluid-properties%E2%80%99
+.fluid-property(@property; @min; @max; @start: 320; @end: 1330; @clip: true; @clipAtStart: true; @clipAtEnd: true) {
+  @multiplier: unit((@max - @min) / (@end - @start) * 100, vw);
+  @adder: unit((@min * @end - @max * @start) / (@end - @start), px);
+  @formula: ~"calc(@{multiplier} + @{adder})";
+
+  & when (@clip) and (@clipAtStart) {
+    @media (max-width: unit(@start, px)) {
+      @{property}: unit(@min, px);
+    }
+  }
+  & when (@clip) and (@clipAtEnd) {
+    @media (min-width: unit(@end, px)) {
+      @{property}: unit(@max, px);
+    }
+  }
+  @{property}: @formula;
+}
+
+.animate-underline(@height) {
+  position: relative;
+  display: inline /* Makes the underline follow the length of text, even when multi-line */;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #F4C55C 50%) /* The animating underline */;
+  background-size: 200% @height /* The underline has twice the width of text; */;
+  background-position: 0 100% /* but offset to the left to be hidden */;
+  background-repeat: repeat-x;
+  transition: background-position 0s;
+
+  box-shadow: inset 0 -@height 0 #F4C55C /* The static line that disappears on hover */;
+
+  &:hover, &:focus, &.hovered {
+    box-shadow: none;
+    background-position: -100% 100%;
+    transition-duration: 0.5s;
+  }
+}
+
+.sec-nav-animate-underline(@height) {
+  position: relative;
+   /* Makes the underline follow the length of text, even when multi-line */
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #FFF7EA 50%) /* The animating underline */;
+  background-size: 200% @height /* The underline has twice the width of text; */;
+  background-position: 0 100% /* but offset to the left to be hidden */;
+  background-repeat: repeat-x;
+  transition: background-position 0s;
+
+  &:hover, &:focus, &.hovered {
+    box-shadow: none;
+    background-position: -100% 100%;
+    transition-duration: 0.5s;
+  }
+}
+
+// Reusable mixin for floating label.
+// Inspired from https://codepen.io/tonystar/pen/JRLaKw
+//
+// Markups:
+// label {
+//   input
+//   span // or which ever element, as long as it is after the input.
+// }
+//
+// Params:
+//  * @selector: The selector for the actual label text.
+//  * @ratio: The ratio of transformation between static and floating.
+//  * @on-static: The ruleset to apply to the label when it's static.
+//  * @on-float: The ruleset to apply to the label when it's floating.
+.float-label(
+  @selector: ~"*"; @ratio: 0.5;
+  @on-static: {};
+  @on-floating: {}
+) {
+  position: relative;
+
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    &::placeholder {
+      transition: all .2s;
+    }
+
+    &:placeholder-shown::placeholder {
+      opacity: 0;
+    }
+
+    & + @{selector} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: text;
+      font-size: @ratio * 1em; // floating size.
+      transform: translateY(-@ratio * 100%);
+      transition: all .2s;
+      @on-floating();
+    }
+  }
+
+  input[type="file"] {
+    &::-webkit-file-upload-button {
+      // Hide the "Choose" file button but keeps the file name text.
+      -webkit-appearance: none;
+      width: 0.1px;
+      opacity: 0;
+      padding: 0;
+      border: none;
+    }
+
+    &:invalid {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+    }
+  }
+
+  input:placeholder-shown:not(:focus) + @{selector},
+  textarea:placeholder-shown:not(:focus) + @{selector},
+  input[type="file"]:invalid + @{selector} {
+    font-size: 1em;
+    transform: translateY(0);
+    @on-static();
+  }
+}
+
+///
+ // @src      The path to your SVG file
+ // @fill The fill value you would like to have injected into your paths
+ //
+ .background-svg(@src, @fill) {
+  // Grab the data-uri version of your SVG; also setting the MIME type appopriately.
+  @data-uri: data-uri('image/svg+xml;charset=UTF-8', "@{src}");
+  // substitute <path with <path fill="YOUR FILL COLOR" with the optional g regex flag, which matches all cases.
+  @replace-default: escape('<path ');
+  @replace-new: escape('<path fill="@{fill}" ');
+  // Escaping the final data-uri and returning a background-image property with that value set.
+  @replace-src: replace("@{data-uri}", @replace-default, @replace-new, "g");
+  background-image: e(@replace-src);
+}
+
+.font-face(@font-name, @font-file, @font-weight: normal) {
+  font-family: '@{font-name}';
+  src: url('../fonts/@{font-name}/@{font-file}.eot');
+  src: url('../fonts/@{font-name}/@{font-file}.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/@{font-name}/@{font-file}.woff') format('woff'),
+       url('../fonts/@{font-name}/@{font-file}.ttf') format('truetype'),
+       url('../fonts/@{font-name}/@{font-file}.svg#@{font-name}') format('svg');
+  font-weight: @font-weight;
+  font-style: normal;
+}

@@ -1,0 +1,202 @@
+.site-header {
+  .brand-logo {
+    padding-top: 21px;
+    padding-bottom: 21px;
+    text-align: left;
+
+    svg {
+      vertical-align: middle;
+      display: inline-block;
+      width: auto;
+    }
+  }
+  .navbar-toggle {
+    display: none;
+  }
+
+  .nav {
+    a {
+      //font-variant: small-caps;
+      font-variant: normal;
+      text-transform: initial;
+      //letter-spacing: 0.06em;
+    }
+  }
+
+  ul, li {
+    display: inline-block;
+  }
+
+  .search-box {
+    visibility: hidden;
+    opacity: 0;
+    height: 100%;
+  }
+
+  .visible-searching {
+    visibility: hidden;
+    opacity: 0;
+    max-width: 0;
+    max-height: 0;
+  }
+}
+
+#primary-nav {
+  & > .nav {
+    width: 100%;
+    text-align: justify;
+    text-align-last: justify;
+  }
+
+  & .secondary-nav {
+    height: 0;
+    overflow: hidden;
+
+    //mobile nav (secondary)
+
+    @media screen and (max-width:767px){
+      & li {
+        &.active{
+          a{
+            content: " ";
+            display:inline-block;
+
+            padding-top: 1px;
+            border-bottom: 2px solid #F4C55C;
+          }
+        }
+      }
+    }
+  }
+
+  & li {
+    vertical-align: top;
+
+    //desktop underline (primary)
+    @media screen and (min-width:768px){
+      &.active{
+        &.isParent{
+          &:after{
+            content: " ";
+            display:block;
+            width: 73%;
+
+            padding-top: .5px;
+            border-bottom: 2px solid #F4C55C;
+          }
+        }
+        &:after{
+          content: " ";
+          display:block;
+          width: 100%;
+
+          margin-top: -2.5px;
+          border-bottom: 2px solid #FFF7EA;
+        }
+      }
+    }
+
+    //mobile-underline (both)
+    @media screen and (max-width: 767px){
+      &.active > a{
+          content: " ";
+          display: inline-block;
+          padding-top: 1px;
+          border-bottom: 2px solid #F4C55C;
+      }
+    }
+
+    &.isParent {
+
+      // The down arrow.
+      & > a:after {
+        font-family: "fontello";
+        content: "\e802";
+        display: inline-block;
+        padding: 0 0.5em;
+
+        @media screen and (max-width: 765px){
+          font-family: "fontello";
+          color: #F4C55C;
+          content: "\e802";
+          display: inline-block;
+          padding: 0 0.5em;
+          position: absolute;
+          right: 1em;
+        }
+      }
+    }
+  }
+}
+
+#primary-nav .secondary-nav,
+.search-box {
+  position: absolute;
+}
+
+@media (min-width: @reflex-sm) {
+  #primary-nav {
+    & > .nav {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: @reflex-xs-max) {
+  .site-header {
+    .navbar-header {
+      & > * {
+        //padding-top: (8 / 320) * 100%;
+        padding-bottom: 2%;
+        //padding-bottom: (8 / 320) * 100%;
+      }
+    }
+
+    .brand-logo {
+      height: 72px;
+      svg {
+        height: 35px;
+      }
+    }
+
+    #primary-nav {
+      visibility: hidden;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+
+    .navbar-toggle {
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .icon-menu {
+      display: block;
+      margin-left: auto;
+      position: absolute;
+      right: 0em;
+      top: 0em;
+    }
+
+    .icon-close, .icon-menu {
+      margin-left: auto;
+    }
+
+    .icon-close {
+      display: none;
+      margin-bottom: .25em;
+    }
+
+    .search-box{
+      display: none;
+    }
+
+    .icon-menu {
+      display: block;
+    }
+  }
+}

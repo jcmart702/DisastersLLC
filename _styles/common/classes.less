@@ -1,0 +1,145 @@
+//Build this list for section classes that you would like populated to paired sections.
+//If you have a class that affects the Section element in some way, you can populate that
+//styling to the next sibling, by adding the class to this list and adding the 'paired' class
+//to the section element.
+@section-classes: "bg-warning","bg-primary","bg-success","bg-info","bg-danger","bg-gray";
+
+main, footer {
+  & > section, & .SAMChunkWrapper > section {
+    &.reduced-padding {
+      padding-top: @section-margin-small;
+      padding-bottom: @section-margin-small;
+    }
+
+    &.reduce-bottom-padding {
+      padding-bottom: @section-margin-small;
+    }
+
+    &.remove-padding {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &.remove-top-padding {
+      padding-top: 0;
+    }
+
+    &.bg-gray {
+      background-color: @gray-light;
+    }
+
+    &.separator {
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid white;
+        z-index: 1;
+      }
+
+      &.bg-gray {
+        &:after {
+          border-top-color: @gray-light
+        }
+      }
+    }
+
+    &.vertical-center {
+      @media (min-width: @screen-sm) {
+        .row {
+          letter-spacing: -0.3em;
+
+          div[class*="col-"] {
+            display: inline-block;
+            float: none;
+            letter-spacing: normal;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    .for-each(@class in @section-classes) {
+      &.paired.@{class} + section {
+        &:extend(.@{class});
+      }
+    }
+  }
+}
+
+div.row {
+  & > div {
+    &:first-child {
+      &.full-image {
+        img {
+          max-width: none;
+          float: right;
+        }
+
+        @media (max-width: 1200px) {
+          img {
+            float: none;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.row-eq-height {
+    @media (min-width: @screen-sm) {
+      display: flex;
+      flex-wrap: wrap;
+
+      div[class*='col-'] {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        -ms-flex: 1 0 auto;
+      }
+
+      margin-bottom: 2em;
+    }
+
+    .panel {
+      display: flex;
+      flex: 1;
+      -ms-flex: 1 0 auto;
+      height: 100%;
+    }
+  }
+}
+
+.text-xs-left { text-align: left; }
+.text-xs-right { text-align: right; }
+.text-xs-center { text-align: center; }
+.text-xs-justify { text-align: justify; }
+
+@media (min-width: @screen-sm) {
+  .text-sm-left { text-align: left; }
+  .text-sm-right { text-align: right; }
+  .text-sm-center { text-align: center; }
+  .text-sm-justify { text-align: justify; }
+}
+
+@media (min-width: @screen-md) {
+  .text-md-left { text-align: left; }
+  .text-md-right { text-align: right; }
+  .text-md-center { text-align: center; }
+  .text-md-justify { text-align: justify; }
+}
+
+@media (min-width: @screen-lg) {
+  .text-lg-left { text-align: left; }
+  .text-lg-right { text-align: right; }
+  .text-lg-center { text-align: center; }
+  .text-lg-justify { text-align: justify; }
+}

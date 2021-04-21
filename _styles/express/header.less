@@ -1,0 +1,80 @@
+header {
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  &.affix {
+    z-index: 99;
+    background-color: white;
+    max-width: 1196px;
+    width: 100%;
+    margin-top: 0;
+    padding-bottom: 0;
+
+    .meta-nav {
+      display: none;
+    }
+
+    .logo {
+      width: 240px;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .logo {
+    width: 250px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 1em;
+    z-index: 99;
+    transition: all 0.1s ease-in-out;
+
+    @media (max-width: @screen-md) {
+      width: 220px;
+    }
+
+    @media (max-width: @screen-sm) {
+      width: 200px;
+    }
+  }
+
+  nav.meta-nav {
+    font-size: 15px;
+
+    ul {
+      margin: 0;
+      text-align: right;
+
+      li {
+        display: inline;
+        margin-right: 1em;
+      }
+    }
+
+    @media (max-width: @screen-sm) {
+      display: none;
+    }
+  }
+
+  nav.navbar {
+    margin: 1em 0 0 0;
+
+    @media (max-width: @screen-sm) {
+      .navbar-collapse {
+        ul {
+          height: 100vh;
+        }
+      }
+    }
+
+    @media (min-width: @screen-sm) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; // remove the gap so it doesn't close
+      }
+    }
+  }
+}

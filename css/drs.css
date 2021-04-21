@@ -1,0 +1,265 @@
+@import "drs/variables";
+@import (css) "/fonts/icon-fonts/css/fontello.css";
+@import (less) "./drs.critical.css";
+
+@font-face {
+  .font-face("Fort", "Fort-Book");
+}
+@font-face {
+  .font-face("Fort", "Fort-Bold", bold);
+}
+
+@import "drs/mixins";
+@import "drs/reset";
+
+@import "../node_modules/reflex-grid/less/reflex";
+
+@import "drs/typography";
+@import "drs/elements";
+@import "drs/drs.user.less";
+@import "drs/forms";
+
+.page-container {
+  position: relative;
+}
+
+@import "drs/header";
+
+main {
+  .container, .two-column [class*=col-] {
+    .vertical-padded;
+  }
+
+  .col-centered {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+.container {
+  max-width: @container-width;
+}
+
+.banner {
+  & .container {
+    max-width: none;
+    padding: 0;
+
+    & img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.jumbotron, .carousel {
+  padding: 0;
+}
+
+.jumbotron {
+  color: #06262D;
+  background-color: #FFF7EA;
+  h1 {
+    color: white;
+  }
+
+  h1, h2 {
+    color: #06262D;
+  }
+}
+
+.jumbotron figure.image {
+  .card;
+}
+
+.two-column {
+  [class*="col-"]:not([class*="col-bleed"]) {
+    // In the design, the content are visually centered in the column
+    // with the help of padding. Therefore, a percentage padding is
+    // required. However, the padding is calculated againsst a 1100px
+    // grid, while our grid is based on a 1200px (minus the gutters).
+    @designed-grid: 1110;
+    @designed-viewport: 1330;
+    @desired-grid: unit(@reflex-lg - @reflex-grid-spacing * 4);
+    @padding: (((@designed-viewport - @desired-grid) / 2) / @designed-viewport) * 100%;
+
+    padding-left: @padding;
+    padding-right: @padding;
+
+    /* makes the text to be even when in mobile */
+    @media screen and (max-width: 768px){
+      padding-left: 0em;
+      padding-right: 0em;
+    }
+
+    .container {
+      padding: 0;
+      max-width: @reflex-lg/2;
+    }
+  }
+
+  .grid--cover {
+    & [class*="col-"] {
+      &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .container {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  [class*="col-"].cover-image {
+    padding: 0;
+    vertical-align: middle;
+
+    & .container {
+      max-width: none;
+    }
+
+    & .container, & #editForm, & .SAMChunkWrapper, & p {
+      height: 100%;
+    }
+
+    @media (max-width: @reflex-xs-max) {
+      order: -1;
+    }
+  }
+}
+
+.three-column{
+  [class*="col-"]:not([class*="col-bleed"]) {
+    // In the design, the content are visually centered in the column
+    // with the help of padding. Therefore, a percentage padding is
+    // required. However, the padding is calculated againsst a 1100px
+    // grid, while our grid is based on a 1200px (minus the gutters).
+    @designed-grid: 1110;
+    @designed-viewport: 1330;
+    @desired-grid: unit(@reflex-lg - @reflex-grid-spacing * 4);
+    @padding: ((((@designed-viewport - @desired-grid) / 3) / @designed-viewport) * 100%);
+
+    /* padding-left: @padding; */
+    /* padding-right: @padding + 1; */
+    padding-bottom: @padding - 2;
+
+    width: 32%;
+    margin-right: 15px;
+    min-width: 300px;
+
+    @media screen and (min-width: 1215px){
+      margin-top: 1em;
+    }
+
+    @media screen and (max-width: 767px){
+      width: 100%;
+    }
+
+    .container {
+      padding: 0;
+      max-width: @reflex-lg/3;
+    }
+  }
+
+  .grid--cover {
+    & [class*="col-"] {
+      &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .container {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .col-sm-4 {
+    border: 1px solid #D9D8D6;
+  }
+
+  @media screen and (max-width: 824px) {
+    .col-sm-4 {
+      margin-top: 1em;
+    }
+
+    .col-sm-4:first-child{
+      margin-top: 0em;
+    }
+  }
+
+  @media screen and (min-width: 825px) and (max-width: 1200px) {
+      .col-sm-4:last-child {
+          margin-top: 1em;
+      }
+  }
+
+  ul {
+    list-style-type: disc;
+    width: 90%;
+    font-size: 18px;
+    font-family: "Lato";
+    color: #06262D;
+  }
+}
+
+
+@import "drs/footer";
+
+.no-flexbox {
+  .two-column {
+    .grid {
+      display: table;
+      width: 100%;
+
+      [class*="background-"] {
+        display: table-cell;
+      }
+    }
+  }
+}
+
+.show-grid {
+  margin-bottom: 15px;
+
+  [class*=col-] {
+    @padding: @reflex-grid-spacing;
+    padding-top: @padding;
+    padding-bottom: @padding;
+    border: 1px solid #ccc;
+
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: @padding;
+        right: @padding;
+        bottom: @padding;
+        left: @padding;
+        background-color: fade(#83e3ff, 50);
+      }
+  }
+}
+
+.debug-grid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+
+  .container, .grid {
+    position: relative;
+    height: 100%;
+  }
+}

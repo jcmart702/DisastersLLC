@@ -1,0 +1,136 @@
+html {
+  // The text-size-adjust declarations prevent certain mobile browsers
+  // from automatically zooming fonts. Importantly this ensures iOS
+  // Safari matches the page width to wider landscape viewports instead
+  // of zooming everything. Unlike none, a value of 100% allows users
+  // to still pinch-zoom.
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  // Setting this smoothing beforehand prevents an ugly flickering of
+  // font “thickness” when animations start and stop. Browsers use this
+  // simpler font smoothing to save on resources when animating or
+  // transitioning elements.
+  // Although grayscale is inferior to sub-pixel anti-aliasing, most
+  // fonts were designed for the “thinner” anti-aliasing and look
+  //  better that way.
+  -moz-osx-font-smoothing: grayscale;
+  // Fonts on OS X will look more consistent with other systems that do
+  // not render text using sub-pixel anti-aliasing.
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+// This fixes the main tag being unsupported and horribly breaking the
+// layout in even recent versions of IE.
+//
+// It also gets rid of the little bullets and numbers from list items,
+// saving you having to strip them off repeatedly every time you make
+// menu or any other component that is semantically a list. When you
+// actually need bullets or numbering pseudo-elements provide more
+// customization options than the standard list-style approach anyway.
+main,
+li {
+  display: block;
+}
+
+//three column list items have bullets
+.three-column li {
+  display: list-item;
+}
+
+.three-column ul {
+  list-style-position: outside;
+  margin-left: 1em;
+}
+
+p, dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+sup {
+  position: relative;
+  top: -.5em;
+  vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+}
+
+// Corrects some browsers defaulting to `bolder`.
+strong {
+  font-weight: bold;
+}
+
+a,
+button {
+  // 90% of your transitions apply to links and buttons, and most of
+  // them have a similar duration. Take a look. I bet many of the
+  // remainder could have, had you assigned more styles to the link
+  // and not the parent or child (which is a good idea anyway for a
+  // few reasons, namely a larger touch-friendly clickable area).
+  // Rarely you need to remove transitions from a link or button.
+  transition: 0.3s;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  overflow: visible; // brings IE into line.
+  border: 0;
+  text-align: inherit;
+  text-transform: inherit;
+  font: inherit;
+  -webkit-font-smoothing: inherit; // fixes buggy inheritance.
+  letter-spacing: inherit;
+  background: none;
+  cursor: pointer;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font: inherit;
+}
+
+button, select {
+  text-transform: none;
+}
+// undoes a bummer pseudo-element Firefox adds inside buttons that
+// causes them to display larger than expected.
+::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+ ::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0; // fixes images within links gaining a border in IE 8, 9 and 10.
+}

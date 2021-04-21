@@ -1,0 +1,206 @@
+body {
+  color: @dark-green-color;
+  color: var(--dark-green);
+  font-variant-numeric: lining-nums;
+  h2{
+    color: #06262D;
+  }
+}
+
+h3, .h3{
+  font-family: "Crimson Text";
+  font-size: 28px;
+  color: @dark-green-color;
+  color: var(--dark-green);
+}
+
+h3, .h3,
+h4, .h4 {
+  font-weight: @medium-font-weight;
+}
+
+h5, .h5 {
+  font-weight: @normal-font-weight;
+  text-transform: uppercase;
+
+}
+
+h3, .h3 {
+  .fluid-property(font-size; 21; 26);
+  line-height: round(30/26, 2);
+  margin-top: 2em;
+  font-size: 28px;
+}
+
+h4, .h4 {
+  font-size: 19px;
+  line-height: round(26/19, 2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: round(26/19, 2) * 1em;
+}
+
+h5, .h5 {
+  .fluid-property(font-size; 18; 18);
+  //color: #06262D
+}
+
+h4, .h4,
+.site-header .nav li,
+.close {
+  // color: @indigo-color;
+  // color: var(--indigo);
+  color: @olive-color;
+  color: var(--olive);
+  font-family: "Lato";
+  font-size: 16px;
+  text-transform: none;
+}
+
+// h1, .h1 {
+//   font-size: 68px;
+//   //might need to change
+//   line-height: 68px;
+//   font-family: "Crimson Text";
+//   color: #06262D;
+// }
+
+h1, .h1{
+  font-size: 56px;
+  line-height: 56px;
+  font-family: "Crimson Text";
+  color: #06262D;
+}
+
+//h1 and p changes depending on screen width
+
+@media screen and (max-width: 768px) {
+  figcaption.left{
+    h1, .h1 {
+      font-size: 56px;
+      //might need to change
+      line-height: 56px;
+      font-family: "Crimson Text";
+      color: #06262D;
+    }
+  }
+
+  .jumbotron p {
+    margin-top: 1em;
+    font-size: 20pt;
+    line-height: 37px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 949px) {
+  figcaption.left{
+    h1, .h1 {
+      font-size: 35px;
+      line-height: 35px;
+    }
+  }
+
+  .jumbotron p{
+    font-size: 14pt;
+    line-height: 27px;
+  }
+}
+
+@media screen and (min-width: 950px) and (max-width: 1084px) {
+  figcaption.left{
+    h1, .h1 {
+      font-size: 50px;
+      line-height: 50px;
+    }
+  }
+
+  .jumbotron p{
+    font-size: 15pt;
+    line-height: 29px;
+  }
+
+}
+
+@media screen and (min-width: 1085px) and (max-width: 1198px) {
+  figcaption.left{
+    h1, .h1 {
+      font-size: 50x;
+      line-height: 50px;
+    }
+  }
+
+  .jumbotron p{
+    font-size: 17pt;
+    line-height: 32px;
+  }
+}
+
+@media screen and (min-width: 1199px) {
+  figcaption.left{
+    h1, .h1 {
+      font-size: 56px;
+      line-height: 56px;
+      font-family: "Crimson Text";
+      color: #06262D;
+    }
+  }
+
+  .jumbotron p {
+    margin-top: 1em;
+    font-size: 20pt;
+    line-height: 37px;
+  }
+}
+
+//inserted
+h2{
+  font-size: 38px;
+  font-family: "Crimson Text";
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 395px){
+  h2{
+    font-size: 32px;
+  }
+}
+
+p {
+  //line-height: round(30/16, 3);
+  line-height: 30px;
+  //margin-top: round(30/16, 3) * 1em;
+  margin-top: 1.15em;
+  font-size: 18px;
+}
+
+ul {
+  margin-top: round(30/16, 3) * 1em;
+  // margin-top: 1.15em
+  //color: #06262D;
+  //font-size: 18px;
+}
+
+h3, .h3,
+h4, .h4,
+h5, .h5,
+ul, li {
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  small, .small {
+    font-size: 65%;
+  }
+}
+
+div.odd > p,
+div.even > p {
+  margin-top: 1.5em
+}

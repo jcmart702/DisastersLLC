@@ -1,0 +1,52 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "079debff4b41f3440672b2750653f231",
+      "css": "nav_arrow_main",
+      "code": 59394,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M58.9 1000.5L0 942 441.8 500.2 0 58.9 58.9 0 558.7 500.2Z",
+        "width": 559
+      },
+      "search": [
+        "nav_arrow_main"
+      ]
+    },
+    {
+      "uid": "66ee64b6e93dae2c3c3002aad7bdc450",
+      "css": "nav_arrow_main",
+      "code": 59392,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "",
+        "width": 558
+      },
+      "search": [
+        "nav_arrow_main"
+      ]
+    },
+    {
+      "uid": "40bc69ea9c01211973089cf20ac79290",
+      "css": "nav_arrow_main",
+      "code": 59393,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "M29.5 29.5L500.2 500.2 29.5 971",
+        "width": 559
+      },
+      "search": [
+        "nav_arrow_main"
+      ]
+    }
+  ]
+}

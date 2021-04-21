@@ -1,0 +1,62 @@
+[
+  // {
+  //   "title" : "Wrapping Section + Container",
+  //   "description" : "Used to initialize a Section chunk. Place more templates after this one, or just Content.",
+  //   "url" : "/page-templates/html/bootstrap-v3/section.html"
+  // },
+  {
+    "title": "Featured row",
+    "description": "",
+    "url": "/page-templates/html/featured-row.html"
+  },
+  {
+    "title": "Close services listing",
+    "description": "Text box followed by a list with not much spacing",
+    "url": "/page-templates/html/category-display.html"
+  },
+  {
+    "title": "Category with services listing",
+    "description": "Text box followed by a list where they are nicely spaced from each other",
+    "url": "/page-templates/html/service-listing.html"
+  },
+  {
+    "title": "Team Member Bio",
+    "description": "Image of team member followed by a section which includes the name of the team member, the title of the team member as well as the a biography paragraph.",
+    "url": "/page-templates/html/team-member.html"
+  }
+  // {
+  //   "title" : "Section - Single Inline Column",
+  //   "description" : "Creates a single column so that you can adjust Inline content width.",
+  //   "url" : "/page-templates/html/single-column.html"
+  // },
+  // {
+  //   "title" : "Section - Two Column CTA",
+  //   "description" : "Two Columned CTAs which alternate colors",
+  //   "url" : "/page-templates/html/two-column-cta.html"
+  // },
+  // {
+  //   "title" : "Section - Three column icons with list items.",
+  //   "description" : "Background Image four column icons. Leading title with CTA at bottom.",
+  //   "url" : "/page-templates/html/three-column-icons-lists.html"
+  // },
+  // {
+  //   "title" : "Section - Two Column Single CTA on right",
+  //   "description" : "Creates Two Columns with a single CTA on the right side.",
+  //   "url" : "/page-templates/html/two-column-single-cta.html"
+  // },
+  // {
+  //   "title" : "Section - Left Image Two Column",
+  //   "description" : "Creates two columns with an image in the left one.",
+  //   "url" : "/page-templates/html/two-column-img-left.html"
+  // },
+  // {
+  //   "title" : "Home - Masthead",
+  //   "description" : "Creates a masthead for the homepage.",
+  //   "url" : "/page-templates/html/home-masthead.html"
+  // },
+  // {
+  //   "title" : "Subpage - Masthead",
+  //   "description" : "Creates a masthead for subpage.",
+  //   "url" : "/page-templates/html/subpage-masthead.html"
+  // }
+]

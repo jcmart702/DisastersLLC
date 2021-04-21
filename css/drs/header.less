@@ -1,0 +1,464 @@
+@import "../../node_modules/reflex-grid/less/reflex/_variables.less";
+@import "variables";
+@import "mixins";
+
+.site-header {
+
+  background-color: @light-tan-color;
+  background-color: var(--light-tan);
+
+  .nav {
+    width: 100%;
+    text-align: left;
+    text-align-last: left;
+  }
+
+  ul{
+    color: @dark-green-color;
+    color: var(--dark-green);
+  }
+
+  .secondary-nav{
+    background-color: @dark-green-color;
+    background-color: var(--dark-green);
+  }
+
+  .secondary-nav li{
+    color: @light-tan-color;
+    color: var(--light-tan);
+  }
+
+  ul, li {
+    display: inline-block;
+  }
+
+  .grid, #primary-nav {
+    position: static; // So the search box is not positioned against this.
+
+  }
+
+  .brand-logo{
+    padding-bottom: .75em;
+    padding-top: .75em;
+    line-height: 0em;
+  }
+
+  label[for="searching"] {
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+      color: @hover-color;
+      color: var(--hover);
+    }
+
+  }
+
+  .search-box {
+    transition-delay: 0s;
+
+    .form-group {
+      color: white;
+      margin-top: 0;
+      margin-bottom: @reflex-grid-spacing * 2;
+    }
+
+    input:focus {
+      outline: 0;
+    }
+
+    button[type="submit"] {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      line-height: 1;
+    }
+  }
+
+  .visible-searching {
+    visibility: hidden;
+    opacity: 0;
+    max-width: 0;
+    max-height: 0;
+  }
+
+  @media (min-width: @reflex-sm)  {
+    .navbar-header {
+      overflow: hidden; // To hide excessive padding.
+    }
+
+    #primary-nav {
+      & a {
+        // Making the links full height.
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin-top: -50px;
+        margin-bottom: -50px;
+      }
+    }
+  }
+
+  @media (max-width: @reflex-xs-max) {
+    .navbar-toggle {
+      cursor: pointer;
+      //padding-top: 1.5em;
+
+      small {
+        display: block;
+      }
+    }
+
+    #primary-nav {
+      position: absolute;
+    }
+
+    & > .secondary-nav {
+      display: none;
+    }
+
+    .icon-menu {
+      color: @indigo-color;
+      color: var(--indigo);
+    }
+
+    #primary-nav {
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+      height: ~"calc(100vh - 100%)";
+      overflow-y: auto;
+
+      .container {
+        top: 0;
+        transform: none;
+      }
+
+      .secondary-nav {
+        position: relative;
+        top: 0;
+        height: 0%;
+        background-color: transparent;
+
+        nav, li:last-child {
+          padding-bottom: 0;
+        }
+      }
+
+      li.isParent {
+        &:hover, &:focus {
+          .secondary-nav {
+            height: 100%;
+          }
+        }
+      }
+
+      body.home & li.home {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    #primary-nav li {
+      display: block;
+      text-align: left;
+      text-align-last: left;
+      padding: 13px @reflex-grid-spacing * 2;
+      margin: 0;
+
+      .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      a {
+        font-variant: normal;
+        text-transform: initial;
+        font-size: 16px;
+      }
+    }
+
+    label[for="searching"] {
+      display: none;
+    }
+
+    .search-box {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+
+      .form-group {
+        margin-bottom: 0;
+        font-size: 16px;
+
+        input {
+          border: 1.5px solid;
+          text-transform: initial;
+          padding: (43px - 16px)/2;
+        }
+      }
+    }
+
+  }
+}
+
+svg.visible-searching{
+  color: @button-default-color;
+
+  &:hover{
+    color: @light-tan-color;
+  }
+}
+
+svg.hidden-searching:hover{
+  color: @button-default-color;
+}
+
+#searching, #primary-nav-toggle {
+  & ~ .page-container .site-header {
+    position: relative; // Secondary nav and search box are positioned against this.
+    transition: all 0.3s ease-in-out;
+  }
+
+  //mobile
+  &:checked ~ .page-container .site-header {
+    //background-color: fade(@indigo-color, 95%);
+    background-color: @dark-green-color;
+    background-color: var(--dark-green);
+
+    #primary-nav li {
+      font-family: "Lato", sans-serif;
+      color: @light-tan-color;
+      color: var(--light-tan);
+      text-transform: initial;
+    }
+
+    #primary-nav li:last-child {
+      border-bottom: none;
+    }
+
+    .hidden-searching {
+      visibility: hidden;
+      opacity: 0;
+      max-width: 0;
+      max-height: 0;
+    }
+
+    .visible-searching {
+      visibility: visible;
+      opacity: 1;
+      max-width: none;
+      max-height: none;
+    }
+  }
+}
+
+#searching {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+
+  &:checked ~ .page-container {
+
+    .search-box {
+      visibility: visible;
+      opacity: 1;
+      background-color: fade(@dark-green-color, 95%);
+    }
+  }
+}
+
+#primary-nav-toggle:checked ~ .page-container {
+  height: 100vh;
+  overflow: hidden;
+
+  .icon-menu {
+    display: none;
+  }
+  .icon-close {
+    display: block;
+  }
+
+  .search-box {
+    display: block;
+  }
+
+  #primary-nav {
+    opacity: 1;
+    visibility: visible;
+    background-color: fade(@dark-green-color, 95%);
+  }
+}
+
+@secondary-nav-height: 62px;
+
+.secondary-nav {
+  background-color: tint(@sec-nav-color, 65%);
+  box-shadow: inset 0px 3px 6px -3px rgba(0, 0, 0, 0.1);
+  height: @secondary-nav-height;
+
+  li {
+
+    vertical-align: middle;
+    & + li {
+      margin-left: 2.5em;
+    }
+
+    &.overview {
+      display: none;
+    }
+  }
+
+  @media (max-width: @reflex-xs-max) {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 300ms ease-in-out !important;
+
+    li.overview {
+      display: inline-block;
+    }
+  }
+}
+
+
+
+#primary-nav {
+  text-align: right;
+  text-align-last: right;
+
+  li {
+    cursor: pointer;
+
+    // &.active {
+    //   // color: @olive-color;
+    //   // color: var(--olive);
+    // }
+
+    &.isParent {
+
+      // a {
+      //   display: inline-block;
+      // }
+
+      // The down arrow.
+      & > a:after {
+        transition: transform 300ms ease-in-out;
+        padding: 0 .5em;
+        font-size: 75%;
+      }
+
+      &.active, &:hover, &:focus, &.hovered {
+        & a:after {
+          transform: rotate(90deg);
+
+          @media (max-width: @reflex-xs-max) {
+            transform: none;
+          }
+        }
+      }
+
+      @media (max-width: @reflex-xs-max) {
+
+        &.mobile-active > a:after {
+          transform: rotate(90deg);
+        }
+
+        &.mobile-active .secondary-nav {
+          max-height: 500px;
+        }
+      }
+    }
+
+    &:hover, &:focus, &.hovered {
+
+      &.isParent {
+        .secondary-nav {
+          height: @secondary-nav-height;
+          transition-delay: 300ms;
+          -webkit-transition-delay: 300ms;
+        }
+      }
+    }
+
+    &.isParent a:focus {
+      & .secondary-nav {
+        height: @secondary-nav-height;
+        transition-delay: 300ms;
+        -webkit-transition-delay: 300ms;
+      }
+    }
+  }
+}
+
+.secondary-nav {
+  text-align: right;
+  text-align-last: right;
+
+  li {
+
+    @media screen and (min-width: 768px){
+      &:not(.active){
+         .sec-nav-animate-underline(unit(2, px));
+      }
+    }
+
+    cursor: pointer;
+  }
+}
+
+#primary-nav .secondary-nav,
+.search-box {
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1; // to appear above marquee.
+
+  overflow: hidden;
+  transition: height 0.3s ease-in-out 300ms;
+  -webkit-transition: height 0.3s ease-in-out 300ms;
+}
+
+.secondary-nav,
+.search-box {
+  .container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .grid {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+body.home #primary-nav {
+  li.home {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.page-message{
+  background-color: @warning-color;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  padding: 0.75em;
+
+  & p {
+    margin: 0;
+  }
+
+  & a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  // Because this bucket is on the top of the page, it is covered by TinyMCE menu.
+  // Therefore, we move it down when editing.
+  & .mce-content-body {
+    margin-top: 131px - 62px;
+    background-color: rgba(255,255,255,.25);
+  }
+}

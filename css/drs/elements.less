@@ -1,0 +1,612 @@
+.inline {
+  ul {
+    margin-bottom: round(30/16, 2) * 1em;
+    margin-left: 1em;
+
+    li {
+      display: list-item;
+      margin-top: 1em;
+    }
+  }
+
+  aside {
+    li {
+      margin-top: 0;
+    }
+
+    h4:first-of-type {
+      // On second column, i.e. "Services" listing, the h4 needs to align with h2.
+      margin-top: 8px;
+    }
+  }
+}
+
+.three-column {
+  p {
+    margin-top: 1.875em;
+  }
+}
+
+ .inline, .two-column, .three-column {
+//   background-color: @dark-green-color;
+//   background-color: var(--dark-green);
+
+//   &:hover, &:focus, &.hovered {
+//     text-decoration: underline;
+//     background-color: @olive-color;
+//     background-color: var(--olive);
+//   }
+
+
+
+//   a:visited {
+//     background-color: @olive-color;
+//     background-color: var(--olive);
+//   }
+    a:not(.button){
+      color: @dark-green-color;
+      color: var(--dark-green);
+      .animate-underline(unit(2, px));
+    }
+  }
+
+.team-title{
+  margin-top: .5em;
+  margin-bottom: 1.5em
+}
+
+img.two-column-icons {
+  margin-bottom: 1.5em;
+}
+
+.card {
+  position: relative;
+
+  img, .card__image {
+    display: block;
+    object-fit: cover;
+    width: 50%;
+    height: auto;
+    margin: 0;
+    min-height: unit(320 * 600 / 1320, px);
+    max-height: 923px;
+  }
+
+  @media screen and (max-width: 768px){
+    img, .card_image {
+      width: 100%
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    figcaption.left {
+      margin-top: auto;
+      margin-left: 0px;
+    }
+  }
+
+  .card__overlay, figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    //padding: 5%;
+    margin: 0;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1084px) {
+    .card__overlay, figcaption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 53%;
+      //padding: 5%;
+      margin: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  @media (max-width: @reflex-xs-max) {
+    .card__overlay, figcaption {
+      position: relative;
+      top: 0;
+      left: auto;
+      right: auto;
+      width: 90%;
+      transform: none;
+      margin-top: round(18/320, 2) * -100vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .header{
+    margin-top: -2em;
+    margin-bottom: -4em;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .header{
+    margin-top: -.5em;
+    margin-bottom: -1em;
+  }
+}
+
+.background-indigo {
+  background-color: @indigo-color;
+  background-color: var(--indigo);
+}
+.background-red {
+  background-color: @red-color;
+  background-color: var(--red);
+}
+.background-turquoise {
+  background-color: @turquoise-color;
+  background-color: var(--turquoise);
+}
+.background-soft-blue {
+   background-color: @soft-blue-tint;
+   background-color: var(--soft-blue-tint);
+}
+.background-soft-blue-shade {
+  background-color: @soft-blue-color;
+  background-color: var(--soft-blue);
+}
+.background-light-gray {
+  background-color: @light-gray-tint;
+  background-color: var(--light-gray-tint);
+}
+.background-light-gray-shade {
+  background-color: @light-gray-color;
+  background-color: var(--light-gray);
+}
+.background-medium-gray {
+  background-color: @medium-gray-color;
+  background-color: var(--medium-gray);
+}
+.background-dark-gray {
+  background-color: @dark-gray-color;
+  background-color: var(--dark-gray);
+}
+
+.background-white {
+  background-color: @white-color;
+  background-color: var(--white);
+}
+
+.background-light-grey {
+  background-color: @light-grey-color;
+  background-color: var(--light-grey);
+}
+
+.background-white-equal {
+  background-color: @white-color;
+  background-color: var(--white);
+}
+
+.background-olive {
+  background-color: @olive-color;
+  background-color: var(--olive);
+}
+
+.background-olive-equal {
+  background-color: @olive-color;
+  background-color: var(--olive);
+}
+
+.background-light-olive {
+  background-color: @light-olive-color;
+  background-color: var(--light-olive);
+}
+
+.background-light-olive-equal{
+  background-color: @light-olive-color;
+  background-color: var(--light-olive);
+}
+
+.background-dark-green {
+  background-color: @dark-green-color;
+  background-color: var(--dark-green);
+}
+
+.background-light-tan {
+  background-color: @light-tan-color;
+  background-color: var(--light-tan);
+}
+
+.background-light-tan-equal {
+  background-color: @light-tan-color;
+  background-color: var(--light-tan);
+}
+
+.background-marquee-swirl:before {
+  @media only screen and (min-width: 768px){
+    content: "";
+    width: 450px;
+    height: 450px;
+    bottom: -11em;
+    right: 0em;
+    background-image: url(/images/common/About_Swirl.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+}
+
+.background-marquee-swirl {
+  background-color: @light-tan-color;
+  background-color: var(--light-tan);
+}
+
+.background-left-swirl:before {
+  @media only screen and (min-width: 768px){
+    content: "";
+    width: 450px;
+    height: 450px;
+    bottom: -6em;
+    left: 0px;
+    background-image: url(/images/common/left_swirl.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+}
+
+.background-right-swirl:before {
+  @media only screen and (min-width: 768px){
+    content: "";
+    width: 350px;
+    height: 350px;
+    bottom: 0em;
+    right: -4em;
+    background-image: url(/images/common/right_swirl.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+}
+
+.background-left-swirl,
+.background-right-swirl {
+  background-color: @olive-color;
+  background-color: var(--olive);
+}
+
+.background-marquee-swirl,
+.background-left-swirl,
+.background-right-swirl {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-indigo,
+.background-red,
+.background-turquoise,
+.background-medium-gray,
+.background-dark-gray,
+.background-olive,
+.background-olive-equal,
+.background-light-olive,
+.background-light-olive-equal,
+.background-dark-green,
+.background-left-swirl,
+.background-right-swirl {
+  &, h1, h2, h3, h4 {
+    color: @light-tan-color;
+    color: var(--light-tan);
+  }
+
+  .mce-content-body {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  a:not(.button){
+    color: @light-tan-color;
+    color: var(--light-tan);
+    .animate-underline(unit(2, px));
+  }
+
+  a.button{
+    color: @light-tan-color;
+    color: var(--light-tan);
+  }
+}
+
+.vertical-padded {
+  padding-top: @vertical-padding;
+  padding-top: var(--vertical-padding);
+  padding-bottom: @vertical-padding;
+  padding-bottom: var(--vertical-padding);
+
+  @media (max-width: @reflex-xs-max) {
+    padding-top: @reflex-grid-spacing * 2;
+    padding-bottom: @reflex-grid-spacing * 2;
+  }
+}
+
+.background-light-olive-equal,
+.background-white-equal,
+.background-light-grey,
+.background-olive-equal,
+.background-marquee-swirl,
+.background-right-swirl,
+.background-left-swirl,
+.background-light-tan-equal {
+  .container {
+      .grid{
+        .col-sm-6:first-child{
+          padding-left: 15px;
+        }
+        .col-sm-6:nth-child(2){
+          padding-right: 15px;
+        }
+      }
+  }
+}
+
+// makes text even in mobile for two-column
+
+.background-light-olive-equal,
+.background-olive-equal,
+.background-white-equal,
+.background-light-tan-equal {
+  @media screen and (max-width: 768px){
+    .container{
+      .grid{
+        .col-sm-6:first-child{
+          padding-left: 15px;
+        }
+        .col-sm-6:nth-child(2){
+          padding-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+.background-olive,
+.background-olive-equal,
+.background-light-olive,
+.background-light-olive-equal,
+.background-dark-green,
+.background-left-swirl,
+.background-right-swirl,
+.background-marquee-swirl {
+  li{
+    color: @light-tan-color;
+    color: var(--light-tan);
+  }
+  p{
+    color:@light-tan-color;
+    color: var(--light-tan);
+  }
+}
+
+.background-white,
+.background-white-equal,
+.background-light-grey,
+.background-light-tan,
+.background-marquee-swirl,
+.background-light-gray,
+.background-light-tan-equal {
+
+  a:not(.button){
+      color: @dark-green-color;
+      color: var(--dark-green);
+      .animate-underline(unit(2, px));
+  }
+
+  .button {
+    color: @dark-green-color;
+    color: var(--dark-green);
+    outline-color: @button-default-color;
+    outline-color: var(--button-default);
+
+    &:before {
+      background-color: inherit;
+    }
+
+    &:hover, &:focus, &.hovered {
+      // color: @light-tan-color;
+      // color: var(--light-tan);
+      color: @dark-green-color;
+      color: var(--dark-green);
+      outline-color: @button-hover-color;
+      outline-color: var(--button-hover);
+    }
+    }
+  h3, h5,
+  p,
+  ul {
+    color: #06262D;
+  }
+
+}
+
+.background-left-swirl {
+  @media screen and (min-width:769px) and (max-width: 866px){
+    h2{
+      font-size: 35px;
+    }
+  }
+
+  @media screen and (min-width: 867px) and (max-width: 915px){
+    h2{
+      font-size: 40px;
+    }
+  }
+
+}
+
+a.button {
+  background-color: inherit;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+
+  td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+  }
+}
+
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
+
+.intrinsic-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@import (less) "../../node_modules/dialog-polyfill/dialog-polyfill.css";
+
+dialog {
+  max-width: 96%;
+  position: fixed;
+  border: none;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  & .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0, -100%);
+    padding: 1em;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.25,.46,.45,.94);
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transform: translateX(-100%);
+      transition: all .2s ease-in-out;
+    }
+
+    svg {
+      display: block; // No extra space.
+    }
+
+    &:hover {
+      color: black;
+
+      &:before {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  & video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+dialog::backdrop, dialog ~ .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.9;
+  cursor: pointer;
+  cursor: alias;
+}
+
+.video-thumbnail {
+  @transitionDuration: 100ms;
+  @transitionEasing: ease-in-out;
+
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  transition: none;
+
+  & .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: none;
+    color: white;
+    border: 2px solid @indigo-color;
+    border-radius: 50%;
+    background-color: @indigo-color;
+    // background-image: linear-gradient(to right, transparent 50%, @indigo-color 50%);
+    // background-size: 200% 100%;
+    // background-position: right bottom;
+    transition: transform @transitionDuration @transitionEasing;
+    will-change: transform
+  }
+
+  // Overlay
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   transition: background-color @transitionDuration @transitionEasing;
+  //   will-change: background-color;
+  //   background-color: fade(@dark-gray-color, 50%);
+  // }
+
+  &:hover {
+    & .play-button {
+      // color: @indigo-color;
+      // background-position: left bottom;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+}
+
+a[href*="youtube.com/"] {
+  @transitionDuration: 100ms;
+  @transitionEasing: ease-in-out;
+
+  position: relative;
+  display: block;
+}
+
+[typeof="Place"] {
+  &:nth-child(even) {
+    .background-light-gray;
+  }
+}
+
+.whitespace-free {
+  letter-spacing: -0.31em;
+}

@@ -1,0 +1,156 @@
+/* @import url("//fast.fonts.net/cssapi/f00d82a5-9538-4607-8cc7-0a32b31e8912.css"); */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,700');
+
+/* @font-face {
+  .font-face("Lato");
+} */
+
+/* @font-face {
+  .font-face("Fort", "Fort-Book");
+}
+@font-face {
+  .font-face("Fort", "Fort-Bold", bold);
+} */
+
+:root {
+  --font-size: @body-font-size;
+  --indigo: @indigo-color;
+  --red: @red-color;
+  --soft-blue: @soft-blue-color;
+  --soft-blue-tint: @soft-blue-tint;
+  --turquoise: @turquoise-color;
+  --light-gray: @light-gray-color;
+  --light-gray-tint: @light-gray-tint;
+  --medium-gray: @medium-gray-color;
+  --dark-gray: @dark-gray-color;
+  --olive: @olive-color;
+  --light-olive: @light-olive-color;
+  --white: @white-color;
+  --dark-green: @dark-green-color;
+  --light-tan: @light-tan-color;
+  --button-default: @button-default-color;
+  --button-hover: @button-hover-color;
+  --hover: @hover-color;
+  --sec-nav: @sec-nav-color;
+  --vertical-padding: @vertical-padding;
+  --font-family-sans-serif: @font-family-sans-serif;
+  --font-family-monospace: @font-family-monospace;
+}
+
+@import "drs/mixins";
+
+@import "drs.critical/reset.less";
+
+html {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Lato", "sans-serif";
+  font-weight: @normal-font-weight;
+  line-height: round(30/@body-font-size, 2);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@import "drs.critical/typography.less";
+@import "drs.critical/grid.less";
+
+@import "drs.critical/header.less";
+@import "drs.critical/elements.less";
+
+.home main {
+  position: relative;
+}
+.home main:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: url("/images/logo.svg") no-repeat right -15px top 25vh; */
+  /* inserted */
+  background-color: white;
+  z-index: -1;
+  will-change: transform;
+}
+
+.jumbotron {
+
+
+  figure.image {
+    width: 100%;
+    position: relative;
+    display: block;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 50%;
+      width: 50%;
+      max-width: @reflex-lg/2;
+      padding: @reflex-grid-spacing * 2;
+      text-align: left;
+    }
+
+    @media (max-width: @reflex-xs-max) {
+      color: @dark-green-color;
+      color: var(--dark-green);
+
+      h1 {
+        color: @dark-green-color;
+        color: var(--dark-green);
+      }
+
+      figcaption {
+        position: relative;
+        top: 0;
+        left: auto;
+        right: auto;
+        width: 90%;
+        transform: none;
+        margin-top: round(18/320, 2) * -100vw;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+  }
+
+  .reversed {
+    figure.image {
+      figcaption {
+        left: auto;
+        right: 50%;
+      }
+
+      @media (max-width: @reflex-xs-max) {
+        figcaption {
+          right: auto;
+        }
+      }
+    }
+  }
+}
+
+[hidden] {
+  display: none;
+}

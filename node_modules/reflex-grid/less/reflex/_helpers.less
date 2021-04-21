@@ -1,0 +1,229 @@
+// --------------------------------------------------
+// align items (cross axis)
+// --------------------------------------------------
+
+.@{reflex-prefix}align-start {
+  align-items: flex-start;
+}
+
+.@{reflex-prefix}align-end {
+  align-items: flex-end;
+
+  & when (@legacy-support) {
+    // fallback to legacy vertical-align
+    [class^="@{reflex-prefix}col-"] {
+      vertical-align: bottom;
+    }
+  }
+}
+
+.@{reflex-prefix}align-center {
+  align-items: center;
+
+  & when (@legacy-support) {
+    // fallback to legacy vertical-align
+    [class^="@{reflex-prefix}col-"] {
+      vertical-align: middle;
+    }
+  }
+}
+
+.@{reflex-prefix}align-baseline {
+  align-items: baseline;
+
+  & when (@legacy-support) {
+    // fallback to legacy vertical-align
+    [class^="@{reflex-prefix}col-"] {
+      vertical-align: baseline;
+    }
+  }
+}
+
+// --------------------------------------------------
+// align-self
+// --------------------------------------------------
+
+.@{reflex-prefix}align-self-stretch {
+  align-self: stretch;
+  // No fallback.
+}
+
+.@{reflex-prefix}align-self-start {
+  align-self: flex-start;
+  vertical-align: top;
+}
+
+.@{reflex-prefix}align-self-end {
+  align-self: flex-end;
+  vertical-align: bottom;
+}
+
+.@{reflex-prefix}align-self-center {
+  align-self: center;
+  vertical-align: middle;
+}
+
+.@{reflex-prefix}align-self-baseline {
+  align-self: baseline;
+  vertical-align: baseline;
+}
+
+// --------------------------------------------------
+// justify-content (main axis)
+// --------------------------------------------------
+
+.@{reflex-prefix}justify-start {
+  justify-content: flex-start;
+
+  & when (@legacy-support) {
+    &.grid {
+      text-align: left;
+    }
+  }
+}
+
+.@{reflex-prefix}justify-end {
+  justify-content: flex-end;
+
+  & when (@legacy-support) {
+    &.grid {
+      text-align: right;
+      text-align-last: right;
+
+      [class^="@{reflex-prefix}col-"] {
+        .reset-text-align();
+      }
+    }
+  }
+}
+
+.@{reflex-prefix}justify-center {
+  justify-content: center;
+
+  & when (@legacy-support) {
+    &.grid {
+      text-align: center;
+      text-align-last: center;
+
+      [class^="@{reflex-prefix}col-"] {
+        .reset-text-align();
+      }
+    }
+  }
+}
+
+.@{reflex-prefix}justify-space-between {
+  justify-content: space-between;
+
+  & when (@legacy-support) {
+    &.grid {
+      text-align: justify;
+      text-align-last: justify;
+
+      [class^="@{reflex-prefix}col-"] {
+        .reset-text-align();
+      }
+    }
+  }
+}
+
+.@{reflex-prefix}justify-space-around {
+  justify-content: space-around;
+
+  & when (@legacy-support) {
+    &.grid {
+      text-align: justify;
+      text-align-last: justify;
+
+      [class^="@{reflex-prefix}col-"] {
+        .reset-text-align();
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// cosmetic grid modifiers
+// --------------------------------------------------
+
+// Removes internal padding from all columns in a grid
+.@{reflex-prefix}grid-bleed {
+  [class*="@{reflex-prefix}col-"] {
+    padding: 0;
+  }
+}
+
+// Removes internal padding from all columns in a grid
+.@{reflex-prefix}col-bleed {
+  padding: 0;
+}
+
+// Removes horizontal padding from all columns in a grid
+.@{reflex-prefix}col-bleed-x {
+  padding: @reflex-grid-spacing 0;
+}
+
+// Removes vertical padding from all columns in a grid
+.@{reflex-prefix}col-bleed-y {
+  padding: 0 @reflex-grid-spacing;
+}
+
+// --------------------------------------------------
+// Responsive visibility modifiers
+// --------------------------------------------------
+& when (@visibility-helpers) {
+  .visibility(@breakpoint) {
+    .@{reflex-prefix}visible-@{breakpoint}-block {
+      display: block;
+    }
+    .@{reflex-prefix}visible-@{breakpoint}-inline {
+      display: inline;
+    }
+    .@{reflex-prefix}visible-@{breakpoint}-inline-block {
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: @reflex-xs) {
+    .visibility(xs);
+  }
+  @media (min-width: @reflex-sm) {
+    .visibility(sm);
+  }
+  @media (min-width: @reflex-md) {
+    .visibility(md);
+  }
+  @media (min-width: @reflex-lg) {
+    .visibility(lg);
+  }
+
+  .@{reflex-prefix}hidden-xxs {
+    @media (max-width: @reflex-xxs-max) {
+      display: none;
+    }
+  }
+
+  .@{reflex-prefix}hidden-xs {
+    @media (min-width: @reflex-xs) and (max-width: @reflex-xs-max) {
+      display: none;
+    }
+  }
+
+  .@{reflex-prefix}hidden-sm {
+    @media (min-width: @reflex-sm) and (max-width: @reflex-sm-max) {
+      display: none;
+    }
+  }
+
+  .@{reflex-prefix}hidden-md {
+    @media (min-width: @reflex-md) and (max-width: @reflex-md-max) {
+      display: none;
+    }
+  }
+
+  .@{reflex-prefix}hidden-lg {
+    @media (min-width: @reflex-lg) {
+      display: none;
+    }
+  }
+}

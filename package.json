@@ -1,0 +1,71 @@
+{
+  "name": "sam-drs",
+  "main": "gulpfile.js",
+  "//": {
+    "dependencies": "All site related dependencies",
+    "devDependencies": "Building and possibly serving tools",
+    "scripts": "Scripts to interact with the project"
+  },
+  "scripts": {
+    "start": "source .env && sam --port=9999 -w './page-templates/**/*.xsl' -w './css/drs.css' -w './css/drs/**/*.less' --hook 'gulpfile'",
+    "build": "source .env && gulp",
+    "watch": "source .env && gulp watch",
+    "dist": "source .env && gulp dist",
+    "deploy": "source .env && gulp deploy",
+    "fonts": "source .env && gulp fonts"
+  },
+  "author": "BrandExtract",
+  "license": "UNLICENSED",
+  "version": "0.1.0",
+  "description": "SAM Express Boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrandExtract/www.disastersllc.com.git"
+  },
+  "keywords": [
+    "sam",
+    "xslt",
+    "js",
+    "less"
+  ],
+  "homepage": "https://github.com/BrandExtract/www.disastersllc.com#readme",
+  "browserslist": [
+    "ie >= 9",
+    "ff > 4",
+    "Safari > 4",
+    "Chrome > 20"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "cash-dom": "^1.3.7",
+    "dialog-polyfill": "^0.4.9",
+    "featherlight": "^1.7.9",
+    "fg-loadcss": "^2.0.1",
+    "owl.carousel": "^2.2.0",
+    "picturefill": "^3.0.2",
+    "reflex-grid": "github:sntran/reflex",
+    "smoothscroll-polyfill": "^0.4.3",
+    "svg4everybody": "^2.1.9"
+  },
+  "devDependencies": {
+    "@brandextract/sam-jr": "git+ssh://git@github.com:BrandExtract/sam-jr.git",
+    "gulp": "gulpjs/gulp",
+    "gulp-autoprefixer": "*",
+    "gulp-clean-css": "*",
+    "gulp-concat": "*",
+    "gulp-debug": "^3.2.0",
+    "gulp-fontello": "^0.4.6",
+    "gulp-if": "2.0.2",
+    "gulp-imagemin": "*",
+    "gulp-less": "*",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sourcemaps": "*",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-svgstore": "^6.1.1",
+    "gulp-uglify": "*",
+    "imagemin-jpeg-recompress": "^5.1.0",
+    "less": "^2.7.2",
+    "vinyl-ftp": "^0.6.0"
+  }
+}

@@ -1,0 +1,286 @@
+@import "drs/variables";
+
+.hovered {
+  position: relative;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-image: url("/images/pointinghand.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+  }
+}
+
+.button.hovered {
+  animation-duration: 2s;
+  animation-name: switch-color-to-indigo;
+  animation-iteration-count: infinite;
+
+  &:before {
+    animation-duration: 2s;
+    animation-name: slide-right;
+    animation-iteration-count: infinite;
+  }
+}
+
+.background-light-gray .button.hovered {
+  animation-name: switch-color-to-white;
+}
+
+a.call-to-action {
+  &.hovered {
+    animation-duration: 1s;
+    animation-name: underline;
+    animation-iteration-count: infinite;
+    box-shadow: none;
+  }
+}
+
+.block-color {
+  display: block;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+
+  &[class*="background"] {
+    position: relative;
+    white-space: pre;
+
+    &:after {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.background-indigo {
+    &:after {
+      .hex-to-rgb(@indigo-color);
+      content: "@{rgb} \A@{indigo-color}";
+    }
+  }
+
+  &.background-red {
+    &:after {
+      .hex-to-rgb(@red-color);
+      content: "@{rgb} \A@{red-color}";
+    }
+  }
+
+  &.background-turquoise {
+    &:after {
+      .hex-to-rgb(@turquoise-color);
+      content: "@{rgb} \A@{turquoise-color}";
+    }
+  }
+
+  &.background-soft-blue {
+    &:after {
+      .hex-to-rgb(@soft-blue-tint);
+      content: "@{rgb} \A@{soft-blue-tint}";
+    }
+  }
+  &.background-soft-blue-shade {
+    &:after {
+      .hex-to-rgb(@soft-blue-color);
+      content: "@{rgb} \A@{soft-blue-color}";
+    }
+  }
+
+  &.background-light-gray {
+    &:after {
+      .hex-to-rgb(@light-gray-tint);
+      content: "@{rgb} \A@{light-gray-tint}";
+    }
+  }
+
+  &.background-light-gray-shade {
+    &:after {
+      .hex-to-rgb(@light-gray-color);
+      content: "@{rgb} \A@{light-gray-color}";
+    }
+  }
+
+  &.background-medium-gray {
+    &:after {
+      .hex-to-rgb(@medium-gray-color);
+      content: "@{rgb} \A@{medium-gray-color}";
+    }
+  }
+
+  &.background-dark-gray {
+    &:after {
+      .hex-to-rgb(@dark-gray-color);
+      content: "@{rgb} \A@{dark-gray-color}";
+    }
+  }
+
+  &.background-light-grey {
+    &:after {
+      .hex-to-rgb(@light-grey-color);
+      content: "@{rgb} \A{light-grey-color};";
+    }
+  }
+
+  &.background-olive {
+    &:after {
+      .hex-to-rgb(@olive-color);
+      content: "@{rgb} \A@{olive-color}";
+    }
+  }
+
+  &.background-light-olive {
+    &:after {
+      .hex-to-rgb(@light-olive-color);
+      content: "@{rgb} \A{light-olive-color}";
+    }
+  }
+
+  &.background-white {
+    &:after {
+      .hex-to-rgb(@white-color);
+      content: "@{rgb} \A@{white-color}";
+    }
+  }
+
+  &.background-light-tan {
+    &:after {
+      .hex-to-rgb(@light-tan-color);
+      content: "@{rgb} \A@{light-tan-color}";
+    }
+  }
+
+  &.background-dark-green {
+    &:after {
+      .hex-to-rgb(@dark-green-color);
+      content: "@{rgb} \A@{dark-green-color}";
+    }
+  }
+
+  &.background-light-olive-equal {
+    &:after {
+      .hex-to-rgb(@light-olive-color);
+      content: "@{rgb} \A{light-olive-color}";
+    }
+  }
+
+  &.background-white-equal {
+    &:after {
+      .hex-to-rgb(@white-color);
+      content: "@{rgb} \A{white-color}";
+    }
+  }
+
+  &.background-light-tan-equal {
+    &:after {
+      .hex-to-rgb(@light-tan-color);
+      content: "@{rgb} \A{light-tan-color}";
+    }
+  }
+  &.background-olive-equal {
+    &:after {
+      .hex-to-rgb(@olive-color);
+      content: "@{rgb} \A@{olive-color}";
+    }
+  }
+
+  &.background-marqee-swirl {
+    &:after {
+      .hex-to-rgb(@light-tan-color);
+      content: "@{rgb} \A@{light-tan-color}";
+    }
+  }
+
+  &.background-left-swirl {
+    &:after {
+      .hex-to-rgb(@olive-color);
+      content: "@{rgb} \A{olive-color}";
+    }
+  }
+
+  &.background-right-swirl {
+    &:after {
+      .hex-to-rgb(@olive-color);
+      content: "@{rgb} \A{olive-color}";
+    }
+  }
+
+}
+
+.hex-to-rgb(@color) {
+  @hex-to-red: round(red(@color));
+	@hex-to-green: round(green(@color));
+	@hex-to-blue: round(blue(@color));
+  @rgb: ~"rgb(@{hex-to-red}, @{hex-to-green}, @{hex-to-blue})";
+}
+
+.SAMcode {
+  background-color: #242424;
+  color: white;
+  max-height: none;
+
+  & pre {
+    font-size: 1rem;
+    line-height: 1;
+  }
+}
+
+@keyframes switch-color-to-indigo {
+  0% {
+    color: inherit;
+  }
+
+  30% {
+    color: @indigo-color;
+  }
+
+  100% {
+    color: @indigo-color;
+  }
+}
+
+@keyframes switch-color-to-white {
+  0% {
+    color: inherit;
+  }
+
+  30% {
+    color: white;
+  }
+
+  100% {
+    color: white;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    width: 0;
+  }
+
+  30% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes underline {
+  0% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: -100% 100%;
+  }
+}

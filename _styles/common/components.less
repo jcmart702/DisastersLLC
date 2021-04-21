@@ -1,0 +1,25 @@
+main, footer {
+  & > section, & .SAMChunkWrapper > section {
+    &.bg-image {
+      position: relative;
+      color: white;
+      overflow: hidden;
+
+      .container {
+        position: relative;
+      }
+
+      & > img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin: auto;
+        min-width: 100%;
+        min-height: 100%;
+        max-width: none;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

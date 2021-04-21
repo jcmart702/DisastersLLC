@@ -1,0 +1,44 @@
+
+@import "../../node_modules/reflex-grid/less/reflex/_variables.less";
+@legacy-support: false;
+@import "../../node_modules/reflex-grid/less/reflex/_mixins.less";
+@import "../../node_modules/reflex-grid/less/reflex/_grid.less";
+
+.align-center {
+  align-items: center;
+
+  & [class^=col-] {
+    vertical-align: middle;
+  }
+}
+
+.col-3 {
+  width: (3 / @reflex-columns) * 100%;
+}
+.col-9 {
+  width: (9 / @reflex-columns) * 100%;
+}
+
+@media (min-width: @reflex-md) {
+  .col-md-4 {
+    width: (4 / @reflex-columns) * 100%;
+  }
+  .col-md-8 {
+    width: (8 / @reflex-columns) * 100%;
+  }
+}
+
+@media (min-width: @reflex-sm) {
+  .col-sm-3 {
+    width: (3 / @reflex-columns) * 100%;
+  }
+  .col-sm-4 {
+    width: (4 / @reflex-columns) * 100%;;
+  }
+  .col-sm-6 {
+    width: (6 / @reflex-columns) * 100%;;
+  }
+  .col-sm-8 {
+    width: (8 / @reflex-columns) * 100%;;
+  }
+}

@@ -1,0 +1,108 @@
+
+
+.site-footer {
+  background-color: @dark-green-color;
+  background-color: var(--dark-green);
+  color: white;
+
+
+
+  .vertical-padded {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  h5 {
+    font-weight: @bold-font-weight;
+  }
+
+  ul, p {
+    margin-top: 0.75em;
+  }
+
+  .brand-logo {
+    text-align: left;
+  }
+
+  nav {
+    a {
+      @font-size: 14;
+      @line-height: 30;
+      @border-height: 1;
+      font-size: unit(@font-size, px);
+      line-height: round(@font-size/@line-height, 2);
+      .animate-underline(unit(@border-height, px));
+      //padding-bottom: unit((@line-height - @font-size) / 2 - @border-height, px);
+      padding-bottom: 4px;
+    }
+  }
+
+  small, div.small {
+    font-family: "Lato";
+    font-size: 12px;
+    font-weight: @bold-font-weight;
+    text-transform: uppercase;
+    color: @turquoise-color;
+    color: var(--turquoise);
+
+    & a {
+      &:hover, &:focus {
+        color: white;
+      }
+    }
+  }
+
+  .contact-info{
+    margin-top: .6em;
+  }
+
+  p{
+    font-size: 14px;
+    margin-top: .5em;
+  }
+
+  #Copyright{
+    font-size: 10px;
+
+    a:hover{
+      color: #F4C55C;
+    }
+  }
+
+  p#CopySecondLine {
+    margin-top: -.75em;
+  }
+
+  .CopyMobile{
+    font-size: 10px;
+
+    a:hover{
+      color: #F4C55C;
+    }
+  }
+
+
+
+  @media screen and (max-width: 768px){
+    #Copyright{
+      display: none;
+    }
+
+    .col-sm-12{
+      margin-top: -2em;
+    }
+  }
+
+  @media screen and (min-width: 769px){
+    .CopyMobile{
+      display: none;
+    }
+  }
+
+  @media (max-width: @reflex-xs-max) {
+    .brand-logo {
+      text-align: left;
+      width: 104px;
+    }
+  }
+}

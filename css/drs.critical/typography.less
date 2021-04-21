@@ -1,0 +1,35 @@
+h1, .h1,
+h2, .h2,
+.site-header .nav li,
+.close {
+  font-family: "Crimson Text";
+  font-weight: @medium-font-weight;
+}
+
+.site-header .nav li,
+.close {
+  font-size: unit(@nav-font-size, px);
+  line-height: round(@nav-line-height/@nav-font-size, 2);
+  text-transform: uppercase;
+  color: @indigo-color;
+}
+
+h1, .h1 {
+  .fluid-property(font-size; 26; 50; @clipAtEnd: false);
+  line-height: round(60/50, 2);
+  //color: white;
+}
+
+h2, .h2 {
+  .fluid-property(font-size; 30; 30);
+  line-height: round(36/30, 2);
+  margin-top: round(36/30, 2) * 1em;
+}
+
+h1, .h1,
+h2, .h2,
+p {
+  &:first-child {
+    margin-top: 0;
+  }
+}

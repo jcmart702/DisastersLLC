@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: @font-family-sans-serif;
+  font-weight: @normal-font-weight;
+  // A line-height of 1 resets inconsistent browser interpretations of
+  // the default normal to a more robust base value that will not cause
+  //  undesired spacing.
+  line-height: 1;
+  font-size: 1rem;
+}
+
+// A heading’s level should be determined by it’s placement in the
+// document outline and not by the stylistic appearance of the words.
+// Sometimes a h2 will be designed smaller that a h3 elsewhere on the
+// same page. Components of a modern web page tend to have very
+// localized heading styles; it’s never one-size-fits-all. Often
+// headings are the same size as the accompanying text and are
+// distinguished by bolding, capitalization and letter spacing instead.
+//
+// It makes much more sense for headings to inherit the same size as
+// the surrounding text by default and not some arbitrary larger size.
+// You will have greater consistency and override less.
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
+a,
+button {
+  // `color: inherit` fixes buttons not inheriting text color in most
+  // browsers. This, along with text-decoration: none makes for less
+  // surprises when applying links to things. Links are styled many
+  // different ways on the same page. Think menus, sidebars, footers,
+  // buttons and within text. Some text is light-on-dark, some is
+  // dark-on-light. The browser default blue or any other color would
+  // be illegible in many places. It makes for less complex styles when
+  // links inherit the color intended for the region they are in.
+  // Sometimes you just want to apply an underline, sometimes only a
+  // color. Sometimes nothing, because you just wrapped an entire
+  // thumbnail and caption.
+  color: inherit;
+}

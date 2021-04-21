@@ -1,0 +1,129 @@
+@import "../../node_modules/reflex-grid/less/reflex/_variables.less";
+@import "variables";
+@import "mixins";
+
+p.h1,
+p.h2,
+p.h3,
+p.h4,
+p.h5,
+p.h6 {
+  font-family: "Foundry Gridnik W01";
+}
+
+.lead {
+  font-size: 21px;
+  line-height: round(36/21, 2);
+}
+
+small, .small {
+  //font-size: 85%;
+  font-size: 12px;
+}
+
+@button-font-size: 18;
+@button-line-height-px: 22;
+// Padding is calculated against the line height to ensure height of 3em;
+@button-padding: round((@button-font-size - (@button-line-height-px - @button-font-size)/2)/@button-font-size, 3) * 1em;
+@button-line-height: round(@button-line-height-px/@button-font-size, 3) * 1em;
+@button-height: @button-line-height + @button-padding * 2;
+
+a.button, main button[type="submit"] {
+  position: relative;
+  display: inline-block;
+  font-family: "Crimson Text";
+  font-weight: @bold-font-weight;
+  font-size: unit(@button-font-size, px);
+  line-height: @button-line-height;
+  padding: @button-padding;
+  padding-bottom: 10px;
+  cursor: pointer;
+  color: @dark-green-color;
+  color: var(--dark-green);
+  // border: 2px solid;
+  // border-color: @button-default-color;
+  // border-color: var(--button-default);
+  outline: 2px solid;
+  outline-color: @button-default-color;
+  outline-color: var(--button-default);
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  transform-style: preserve-3d; // To reset stacking context.
+  letter-spacing: 0.06em;
+
+  // &:before {
+  //   content: '';
+  //   width: 100%;
+  //   height: 100%;
+  //   //background-color: @button-hover-color;
+  //   //background-color: var(--button-hover);
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: -1;
+  //   transition: all .2s ease-in-out;
+  //   transform: translateX(-100%);
+  //   will-change: transform;
+  // }
+
+  &:hover, &:focus, &.hovered {
+    //color: @light-tan-color;
+    //color: var(--light-tan);
+    outline-color: @button-hover-color;
+    outline-color: var(--button-hover);
+    background-color: inherit;
+    outline-width: 5px;
+    text-decoration: none;
+
+    &:before {
+      transform: translateX(0);
+    }
+  }
+
+  p > & {
+    // Offset with the margin-top of the p.
+    margin-top: @button-height - round(30/@button-font-size, 3) * 1em;
+  }
+}
+
+a.button {
+  margin-top: @button-height; // Each button should be separated by its height.
+}
+
+a.call-to-action {
+  font-family: "Foundry Gridnik W01";
+  font-weight: @medium-font-weight;
+  font-size: 26px;
+  line-height: round(30/26, 2);
+  font-variant: small-caps;
+  text-transform: lowercase;
+
+  .animate-underline(2px);
+}
+
+.centered {
+  text-align: center;
+  text-align-last: center;
+}
+
+img.cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ul.two-column {
+  @media (min-width: @reflex-md) {
+    column-count: 2;
+    column-gap: 3em;
+
+    & li {
+      break-inside: avoid-column;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}

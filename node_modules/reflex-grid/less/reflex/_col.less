@@ -1,0 +1,9 @@
+// --------------------------------------------------
+// reflex grid generation
+// --------------------------------------------------
+.foreach-breakpoints({
+  // @prefix variable is set from the mixin.
+  .make-reflex-grid(~"col@{prefix}-");
+  .make-reflex-offset(~"col@{prefix}-");
+  .make-reflex-position(~"col@{prefix}-");
+});
