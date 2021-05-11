@@ -3,6 +3,8 @@
 <p>Project Role: Main Developer
 <p>Project Time Period: November 2019 - February 2020</p>
 <p>Project URL: https://www.disastersllc.com/</p>
+<br/>
+<p>Work performed for project can be seen under the _styles and css folders</p>
 
 <ul>
   <li>Created the styles using CSS and LESS as well as new layout configurations using XML</li>
